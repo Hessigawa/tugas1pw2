@@ -61,7 +61,20 @@ class EventController extends Controller
      */
     public function show(string $id)
     {
-        return Event::with('tickets')->findOrFail($id);
+         $event = Event::with('ticket')->find($id);
+
+        if ($event) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Event tidak ditemukan.'
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Detail event ditemukan.',
+            'data'    => $event
+        ], Response::HTTP_OK);
     }
 
     /**
