@@ -6,7 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Event extends Model
 {
-    protected $fillable = ['nama', 'kode'];
+    protected $table = 'event';
+    protected $primaryKey = 'id';
+    protected $fillable = ['kode', 'nama'];
 
     public function ticket()
     {

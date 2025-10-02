@@ -12,10 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('ticket', function (Blueprint $table) {
-            $table->id('kode', 4);
+            $table->id();
+            $table->String('kode', 4)->unique;
             $table->unsignedInteger('event_id');
             $table->string('type');
-            $table->integer('harga');
+            $table->integer('harga', 10, 2);
             $table->timestamps();
 
             $table->foreign('event_id')->references('id')->on('event')->onDelete('cascade');
