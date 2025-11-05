@@ -8,7 +8,7 @@ class Ticket extends Model
 {
     protected $table = 'ticket';
     protected $primaryKey = 'id';
-    protected $fillable = ['kode', 'harga', 'event_id'];
+    protected $fillable = ['event_id', 'tipe', 'harga'];
 
     public function event()
     {

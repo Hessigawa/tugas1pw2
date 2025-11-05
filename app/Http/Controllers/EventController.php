@@ -37,7 +37,7 @@ class EventController extends Controller
     {
         $validate = $request->validate([
         'nama' => 'required|unique:event,nama',
-        'singkatan' => 'required|max:4'
+        'kode' => 'required|max:4'
     ]);
 
     $event = Event::create($validate);

@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('type');
             $table->integer('harga', 10, 2);
             $table->timestamps();
-
+            
             $table->foreign('event_id')->references('id')->on('event')->onDelete('cascade');
         });
     }

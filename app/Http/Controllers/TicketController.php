@@ -37,8 +37,8 @@ class TicketController extends Controller
     {
         $validate = $request->validate([
             'event_id' => 'required|exists:events,id',
-            'type'     => 'required|string|max:50',
-            'price'    => 'required|integer|min:0'
+            'tipe'     => 'required|string|max:50',
+            'harga'    => 'required|integer|min:0'
         ]);
 
         $ticket = Ticket::create($validate);
